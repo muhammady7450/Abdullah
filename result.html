@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>نتیجہ - 8171 ویب پورٹل</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Alvi Nastaleeq Regular';
+            src: url('fonts/MehrNastaliqWebRegular.ttf');
+        }
+        
+        * {
+            font-family: 'Alvi Nastaleeq Regular', Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px 0;
+        }
+        
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+            width: 100%;
+        }
+        
+        .banner-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        
+        .nav-custom {
+            background-color: #000;
+            font-size: larger;
+        }
+        
+        .navbar-toggler {
+            border-color: white;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .result-box {
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin-top: 20px;
+            background: white;
+            text-align: center;
+        }
+        
+        .result-title {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .result-content {
+            color: black;
+            line-height: 1.8;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .check-again-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .cnic-display {
+            font-weight: bold;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <!-- بینر -->
+       <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="bisp.png" alt="BISP Banner" class="banner-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- نیویگیشن -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-custom">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">اہلیت کے بارے میں جانیۓ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- مین کونٹینٹ -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="result-box">
+                        <h2 class="result-title"<span id="resultCNIC" class="cnic-display"></span></h2>
+                        <div class="result-content">آپ کا ڈائنامک رجسٹری میں اندراج ہوچکا ہے۔
+جانچ پڑتال کے بعد 8171 سے آپ کو باضابطہ ایم ایس ایس اہلیت کے حوالے سے مطلع کیا جائے گا۔م</p>
+                            <p<tag>
+                                <!--Tab to edit-->
+                            </ta</p>
+                            <p></p>
+                            <br>
+                            <p><strong></strong></p>
+                        </div>
+                        
+                        <button class="check-again-btn" onclick="goBackToCheck()">دوبارہ چیک کریں</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- فوٹر -->
+    <footer class="footer">
+        حقوق نقل و اشاعت ۲۰۲۵ بے نظیر انکم سپورٹ پروگرام۔ جملہ حقوق محفوظ ہیں۔
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // URL سے CNIC نمبر حاصل کریں
+        function getCNICFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('cnic');
+        }
+
+        // صفحہ لوڈ ہونے پر CNIC دکھائیں
+        window.onload = function() {
+            const cnic = getCNICFromURL();
+            if (cnic) {
+                document.getElementById('resultCNIC').textContent = cnic;
+            } else {
+                document.getElementById('resultCNIC').textContent = 'شناختي کارڈ نمبر';
+            }
+        }
+
+        // واپس چیک کرنے کے لیے
+        function goBackToCheck() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
