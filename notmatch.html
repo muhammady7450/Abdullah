@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>نتیجہ - 8171 ویب پورٹل</title>
+
+    <!-- Google Urdu Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        @font-face {
-            font-family: 'Alvi Nastaleeq Regular';
-            src: url('fonts/MehrNastaliqWebRegular.ttf');
-        }
-        
+        /* Apply font globally */
         * {
-            font-family: 'Alvi Nastaleeq Regular', Arial, sans-serif;
+            font-family: 'Noto Nastaliq Urdu', Arial, sans-serif !important;
         }
-        
+
         body {
             display: flex;
             flex-direction: column;
@@ -22,12 +25,12 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .main-content {
             flex: 1;
             padding: 20px 0;
         }
-        
+
         .footer {
             background-color: black;
             color: white;
@@ -36,26 +39,26 @@
             margin-top: auto;
             width: 100%;
         }
-        
+
         .banner-img {
             width: 100%;
             max-height: 200px;
             object-fit: cover;
         }
-        
+
         .nav-custom {
             background-color: #000;
             font-size: larger;
         }
-        
+
         .navbar-toggler {
             border-color: white;
         }
-        
+
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
-        
+
         .result-box {
             border: 1px solid #ddd;
             padding: 30px;
@@ -63,20 +66,26 @@
             background: white;
             text-align: center;
         }
-        
+
         .result-title {
             color: #dc3545;
             margin-bottom: 20px;
             font-size: 24px;
         }
-        
+
         .result-content {
             color: black;
             line-height: 1.8;
             font-size: 18px;
             margin-bottom: 30px;
         }
-        
+
+        /* Green color for CNIC + label */
+        .highlight-green {
+            color: #28a745;
+            font-weight: bold;
+        }
+
         .check-again-btn {
             background: #28a745;
             color: white;
@@ -87,30 +96,21 @@
             cursor: pointer;
             margin-top: 20px;
         }
-        
-        .cnic-display {
-            font-weight: bold;
-            color: #28a745;
-        }
     </style>
 </head>
 <body>
-    <!-- بینر -->
+
+    <!-- Banner -->
     <div class="container-fluid p-0">
-        <div class="row">
-            <div class="col-12 text-center">
-                <img src="bisp.png" alt="BISP Banner" class="banner-img">
-            </div>
-        </div>
+        <img src="bisp.png" alt="BISP Banner" class="banner-img">
     </div>
 
-    <!-- نیویگیشن -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark nav-custom">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item active">
@@ -121,21 +121,24 @@
         </div>
     </nav>
 
-    <!-- مین کونٹینٹ -->
+    <!-- Main Content -->
     <div class="main-content">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="result-box">
-                        <h2 class="result-title"></h2>
+                        <h2 class="result-title">نتیجہ</h2>
                         <div class="result-content">
-                            <p>آپ کا شناختی کارڈ نمبر <span id="noteligibleCNIC" class="cnic-display"></span> آپ کا ڈائنامک رجسٹری میں اندراج ہوچکا ہے، آپ کفالت پروگرام کیلئے اہل نہیں ہیں۔
-آپ کا اگلا سروے مورخہ 2027-06-19 کے بعد ممکن ہے۔
-برائے مہربانی دی گئی تاریخ پر اپنے قریبی بینظیر رجسٹریشن سینٹر پر دوبارہ اندراج کیلئے تشریف لے جائیں۔
-اپنے ہمراہ نادرا شناختی کارڈ، ب فارم اور بجلی کا بل لازمی لائیں۔ </p>
-                            <p> </p>
+                            <p>
+                                <span class="highlight-green">آپ کا شناختی کارڈ نمبر</span> 
+                                <span id="noteligibleCNIC" class="highlight-green"></span> 
+                                آپ کا ڈائنامک رجسٹری میں اندراج ہوچکا ہے، آپ کفالت پروگرام کیلئے اہل نہیں ہیں۔
+                                آپ کا اگلا سروے مورخہ 2027-06-19 کے بعد ممکن ہے۔
+                                برائے مہربانی دی گئی تاریخ پر اپنے قریبی بینظیر رجسٹریشن سینٹر پر دوبارہ اندراج کیلئے تشریف لے جائیں۔
+                                اپنے ہمراہ نادرا شناختی کارڈ، ب فارم اور بجلی کا بل لازمی لائیں۔
+                            </p>
                         </div>
-                        
+
                         <button class="check-again-btn" onclick="goBackToCheck()">دوبارہ چیک کریں</button>
                     </div>
                 </div>
@@ -143,33 +146,31 @@
         </div>
     </div>
 
-    <!-- فوٹر -->
+    <!-- Footer -->
     <footer class="footer">
         حقوق نقل و اشاعت ۲۰۲۵ بے نظیر انکم سپورٹ پروگرام۔ جملہ حقوق محفوظ ہیں۔
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        // URL سے CNIC نمبر حاصل کریں
+        // CNIC from URL
         function getCNICFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get('cnic');
         }
 
-        // صفحہ لوڈ ہونے پر CNIC دکھائیں
-        window.onload = function() {
+        // Show CNIC
+        window.onload = function () {
             const cnic = getCNICFromURL();
-            if (cnic) {
-                document.getElementById('noteligibleCNIC').textContent = cnic;
-            } else {
-                document.getElementById('noteligibleCNIC').textContent = 'نامعلوم';
-            }
-        }
+            document.getElementById('noteligibleCNIC').textContent = cnic || 'نامعلوم';
+        };
 
-        // واپس چیک کرنے کے لیے
+        // Back to check
         function goBackToCheck() {
             window.location.href = 'index.html';
         }
     </script>
+
 </body>
 </html>
